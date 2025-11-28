@@ -1,0 +1,74 @@
+﻿<Window x:Class="AMONICAirlinesApp.Windows.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AMONICAirlinesApp.Windows"
+        mc:Ignorable="d"
+        Title="AMONIC Airlines Automation system"
+        Height="450" Width="800"
+        MaxHeight="550" MaxWidth="900"
+        MinHeight="350" MinWidth="700"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0">
+            <MenuItem Header="Exit"
+                      Click="MenuItem_Click"/>
+        </Menu>
+
+        <TextBlock Grid.Row="1"
+            x:Name="TextBlockEntry"
+            Margin="15"/>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Time spent on system: "
+                       Margin="10"/>
+            <TextBlock x:Name="TextBlockSpentTime"
+                       Margin="10"/>
+
+            <TextBlock Text="Number of crashes: "
+                       Margin="10"/>
+            <TextBlock x:Name="TextBlockCrushCount"
+                       Margin="10"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DataGridActivity"
+                  Margin="15"
+                  Grid.Row="3"
+                  AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                    CanUserReorderColumns="False"
+                    CanUserResizeColumns="False"  
+                    CanUserResizeRows="False"
+                    CanUserSortColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data"
+                                    Binding="{Binding DateString}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="Login Time"
+                                    Binding="{Binding LoginTimeString}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="Logout Time"
+                                    Binding="{Binding LogoutTimeString}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="Time spent in system"
+                                    Binding="{Binding SpentTime}"
+                                    Width="2*"/>
+                <DataGridTextColumn Header="Unsuccessful logout reason"
+                                    Binding="{Binding Error}"
+                                    Width="2*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

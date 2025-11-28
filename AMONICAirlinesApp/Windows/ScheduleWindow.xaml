@@ -1,0 +1,171 @@
+﻿<Window x:Class="AMONICAirlinesApp.Windows.ScheduleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AMONICAirlinesApp.Windows"
+        mc:Ignorable="d"
+        Title="Manage Flight Schedules" Height="450" Width="800"
+        MaxHeight="550" MaxWidth="900"
+        MinHeight="350" MinWidth="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Grid.Row="0"
+                  BorderThickness="3"
+                  BorderBrush="Black"
+                  Margin="5"
+                  Header="Filter by">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+
+                    <StackPanel Orientation="Horizontal"
+                            Margin="10">
+                        <Label Content="From"
+                           Margin="5"/>
+                        <ComboBox x:Name="ComboBoxFromAirport"
+                              Margin="5"
+                              Width="100"
+                              Height="20"
+                                DisplayMemberPath="Name"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                            Margin="10">
+                        <TextBlock Text="To"
+                               Margin="10"/>
+                        <ComboBox x:Name="ComboBoxToAirport"
+                              Margin="5"
+                                Width="100"
+                                Height="20"
+                                  DisplayMemberPath="Name"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                            Margin="10">
+                        <TextBlock Text="Sort by"
+                               Margin="10"/>
+                        <ComboBox x:Name="ComboBoxSortBy"
+                              Margin="5"
+                              Width="100"
+                              Height="20"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10">
+                        <TextBlock Text="Outbound"
+                                   Margin="10"/>
+                        <DatePicker x:Name="DatePickerOutbound"
+                                    Margin="5"
+                                    Width="100"
+                                    Height="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="10">
+                        <TextBlock Text="Flight Number"
+                                   Margin="10"/>
+                        <TextBox x:Name="TextBoxNumber"
+                                 Width="100"
+                                Height="20"
+                                Margin="5"/>
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Margin="10">
+                        <Button x:Name="ButtonApply"
+                                Margin="5"
+                                Content="Apply"
+                                 Width="100"
+                                Height="20"
+                                Click="ButtonApply_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <DataGrid x:Name="DataGridFlights"
+                  Grid.Row="1"
+                  Margin="10"
+                  AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserReorderColumns="False"
+                CanUserResizeColumns="False"  
+                CanUserResizeRows="False"
+                CanUserSortColumns="False"
+                  SelectionChanged="DataGridFlights_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date"
+                                    Binding="{Binding StringDate}"
+                                    Width="2*"/>
+                <DataGridTextColumn Header="Time"
+                                    Binding="{Binding Time}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="From"
+                                    Binding="{Binding DepartureAirport}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="To"
+                                    Binding="{Binding ArrivalAirport}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="FlightNumber"
+                                    Binding="{Binding FlightNumber}"
+                                    Width="2*"/>
+                <DataGridTextColumn Header="Aircraft"
+                                    Binding="{Binding AircraftID}"
+                                    Width="*"/>
+                <DataGridTextColumn Header="Economy Price"
+                                    Binding="{Binding EconomyPrice}"
+                                    Width="2*"/>
+                <DataGridTextColumn Header="Bussines Price"
+                                    Binding="{Binding BussinesPrice}"
+                                    Width="2*"/>
+                <DataGridTextColumn Header="First Class Price"
+                                    Binding="{Binding FirstClassPrice}"
+                                    Width="2*"/>
+            </DataGrid.Columns>
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Confirmed}" Value="False">
+                            <Setter Property="Background" Value="Red"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2"
+            Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <Button x:Name="ButtonCancelFlight"
+                    Margin="20"
+                    Width="90"
+                    Content="Cancel flight"
+                    Click="ButtonCancelFlight_Click"/>
+            <Button x:Name="ButtonEditFlight"
+                    Margin="20"
+                    Width="90"
+                    Content="Edit flight"
+                    Click="ButtonEditFlight_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="350 0 0 0">
+                <Button x:Name="ButtonImportChanges"
+                        Margin="20"
+                        Width="110"
+                        Content="Import changes"
+                        Click="ButtonImportChanges_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

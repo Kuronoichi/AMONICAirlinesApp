@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42CF2CA3-E2D4-4176-804E-6F8FBB64344C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AMONICAirlinesApp</RootNamespace>
+    <AssemblyName>AMONICAirlinesApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Database\Aircrafts.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Airports.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Amenities.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AmenitiesTickets.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AMONICAirlinesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CabinTypes.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Account.cs" />
+    <Compile Include="Database\Countries.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Offices.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Roles.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Routes.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Schedules.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\sysdiagrams.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Tickets.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\UserActivity.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Users.cs">
+      <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditRoleWindow.xaml.cs">
+      <DependentUpon>EditRoleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\FlightsWindow.xaml.cs">
+      <DependentUpon>FlightsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ScheduleEditWindow.xaml.cs">
+      <DependentUpon>ScheduleEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ScheduleWindow.xaml.cs">
+      <DependentUpon>ScheduleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Windows\AddUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditRoleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FlightsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Database\AMONICAirlinesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AMONICAirlinesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\AMONICAirlinesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AMONICAirlinesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Windows\AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\ScheduleEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ScheduleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Database\AMONICAirlinesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AMONICAirlinesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\AMONICAirlinesModel.edmx.diagram">
+      <DependentUpon>AMONICAirlinesModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Resources\Fonts\TCBI____.TTF" />
+    <Resource Include="Resources\Fonts\TCB_____.TTF" />
+    <Resource Include="Resources\Fonts\TCCB____.TTF" />
+    <Resource Include="Resources\Fonts\TCCEB.TTF" />
+    <Resource Include="Resources\Fonts\TCCM____.TTF" />
+    <Resource Include="Resources\Fonts\TCMI____.TTF" />
+    <Resource Include="Resources\Fonts\TCM_____.TTF" />
+    <Resource Include="Resources\Fonts\TeXGyreAdventor-Bold.ttf" />
+    <Resource Include="Resources\Fonts\TeXGyreAdventor-BoldItalic.ttf" />
+    <Resource Include="Resources\Fonts\TeXGyreAdventor-Italic.ttf" />
+    <Resource Include="Resources\Fonts\TeXGyreAdventor-Regular.ttf" />
+    <Resource Include="Resources\Fonts\verdana.ttf" />
+    <Resource Include="Resources\Fonts\verdanab.ttf" />
+    <Resource Include="Resources\Fonts\verdanai.ttf" />
+    <Resource Include="Resources\Fonts\verdanaz.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\AMONICAirlinesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AMONICAirlinesModel.Context.cs</LastGenOutput>
+      <DependentUpon>AMONICAirlinesModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Database\AMONICAirlinesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AMONICAirlinesModel.edmx</DependentUpon>
+      <LastGenOutput>AMONICAirlinesModel.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resources\DS2017_TP09_color.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_2_colors%404x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_2_colors.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_2_colors_%402x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_2_colors_swatches%404x1.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_2_colors_with_bg%402x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_2_colors_with_bg%404x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_2_colors_with_bg.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_Airplane-Amonic-Single.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_Airplane-Amonic.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_black%402x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_black%404x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_black.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_color%402x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_color%404x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_color.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_color_swatches%404x1.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_color_swatches.jpg" />
+    <Resource Include="Resources\Images\DS2017_TP09_mono%402x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_mono%404x.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_mono.png" />
+    <Resource Include="Resources\Images\DS2017_TP09_mono_swatches%404x1.png" />
+    <Resource Include="Resources\Images\white%402x.png" />
+    <Resource Include="Resources\Images\white%404x.png" />
+    <Resource Include="Resources\Images\white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
