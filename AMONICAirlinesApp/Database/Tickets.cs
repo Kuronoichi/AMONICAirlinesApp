@@ -11,7 +11,9 @@ namespace AMONICAirlinesApp.Database
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Tickets
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -37,5 +39,8 @@ namespace AMONICAirlinesApp.Database
         public virtual CabinTypes CabinTypes { get; set; }
         public virtual Schedules Schedules { get; set; }
         public virtual Users Users { get; set; }
+
+        [NotMapped]
+        public int Value { get; set; }
     }
 }

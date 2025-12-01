@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\ScheduleEntity.cs" />
     <Compile Include="Database\Aircrafts.cs">
       <DependentUpon>AMONICAirlinesModel.tt</DependentUpon>
     </Compile>
@@ -115,6 +116,12 @@
     <Compile Include="Windows\AddUserWindow.xaml.cs">
       <DependentUpon>AddUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\BookingConfirmWindow.xaml.cs">
+      <DependentUpon>BookingConfirmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BookingWindow.xaml.cs">
+      <DependentUpon>BookingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditRoleWindow.xaml.cs">
       <DependentUpon>EditRoleWindow.xaml</DependentUpon>
     </Compile>
@@ -135,6 +142,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BookingConfirmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BookingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

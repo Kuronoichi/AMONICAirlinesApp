@@ -1,4 +1,5 @@
-﻿using AMONICAirlinesApp.Database;
+﻿using AMONICAirlinesApp.Classes;
+using AMONICAirlinesApp.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,7 +85,28 @@ namespace AMONICAirlinesApp.Windows
 
         private void ButtonBooking_Click(object sender, RoutedEventArgs e)
         {
-            UpdateData();
+            try
+            {
+                int passengersnumber = int.Parse(TextBoxPassanger.Text);
+
+                var FlightOut = DataGridOutboundFlights.SelectedItem as ScheduleEntity;
+
+                var FlightReturn = DataGridReturnFlights.SelectedItem as ScheduleEntity;
+
+                if (FlightOut != null && FlightReturn != null)
+                {
+                    new BookingWindow(FlightOut, FlightReturn, passengersnumber).ShowDialog();
+                }
+                else if (FlightOut != null)
+                    new BookingWindow(FlightOut, null, passengersnumber).ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
         }
 
         private void UpdateData()
@@ -109,11 +131,21 @@ namespace AMONICAirlinesApp.Windows
                 if (ComboBoxCabinType.SelectedItem != null)
                 {
                     if (cabin.Name == "Economy")
+                    {
                         item.CabinPrice = (int)f.EconomyPrice;
+                        item.CabinTypeID = 1;
+                    }
                     if (cabin.Name == "Business")
+                    {
+                        item.CabinTypeID = 2;
                         item.CabinPrice = (int)f.BussinesPrice;
+                    }
                     if (cabin.Name == "First Class")
+                    {
                         item.CabinPrice = (int)f.FirstClassPrice;
+                        item.CabinTypeID = 3;
+                    }
+                        
                 }
                 data.Add(item);
             }
@@ -173,18 +205,6 @@ namespace AMONICAirlinesApp.Windows
             DataGridReturnFlights.ItemsSource = arrivaldata.ToList();
             else
             DataGridReturnFlights.Visibility = Visibility.Collapsed;
-        }
-
-        private class ScheduleEntity
-        {
-            public int ID { get; set; }
-            public DateTime Date { get; set; }
-            public TimeSpan Time { get; set; }
-            public string From { get; set; }
-            public string To { get; set; }
-            public string Flight { get; set; }
-            public int CabinPrice { get; set; }
-            public int Stops { get; set; }
         }
     }
 }
